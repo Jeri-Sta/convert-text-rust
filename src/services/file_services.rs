@@ -40,7 +40,7 @@ pub(crate) fn write_file(file_name: &str, content: &str) {
     let path = Path::new(file_name);
     let display = path.display();
 
-    let mut file = match OpenOptions::new().write(true).open(&path) {
+    let mut file = match OpenOptions::new().write(true).truncate(true).open(&path) {
         Err(why) => panic!("Não foi possível abrir o arquivo {}: {}", display, why),
         Ok(file) => file,
     };

@@ -18,7 +18,10 @@ fn main() {
 
         let mut input = String::new();
 
-        io::stdout().flush().unwrap();
+        match io::stdout().flush() {
+            Ok(_) => {},
+            Err(_) => println!("Falha ao limpar o buffer de saída")
+        };
 
         io::stdin().read_line(&mut input).expect("Falha ao ler a entrada");
 
