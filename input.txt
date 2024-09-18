@@ -1,0 +1,72 @@
+java
+package br.com.senior.hcmesocialgenerator.processor.nonperiodic.generator.layout.s2305;
+
+import br.com.senior.hcmesocialgenerator.processor.NonPeriodicPendency;
+import br.com.senior.hcmesocialgenerator.processor.nonperiodic.generator.layout.common.AbstractGenerateLayoutNonPeriodicContext;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.experimental.FieldDefaults;
+
+import java.util.Map;
+import java.util.UUID;
+
+@Getter
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class GenerateLayoutS2305Context extends AbstractGenerateLayoutNonPeriodicContext {
+    public GenerateLayoutS2305Context(String processId,
+                                       UUID batchId,
+                                       NonPeriodicPendency pendency,
+                                       Map<String, String> dataByOrigin) {
+        super(processId, batchId, pendency);
+    }
+
+    Id id;
+    IdeEvento ideEvento;
+    IdeEmpregador ideEmpregador;
+    IdeVinculo ideVinculo;
+    InfoAfastamento infoAfastamento;
+
+    class Id {
+        String id;
+    }
+
+    class IdeEvento {
+        String indRetif;
+        String nrRecibo;
+        String tpAmb;
+        String procEmi;
+        String verProc;
+    }
+
+    class IdeEmpregador {
+        String tpInsc;
+        String nrInsc;
+    }
+
+    class IdeVinculo {
+        String cpfTrab;
+        String matricula;
+        String codCateg;
+    }
+
+    class InfoAfastamento {
+        IniAfastamento iniAfastamento;
+        String infoCessao;
+        String infoMandSind;
+        String infoRetif;
+    }
+
+    class IniAfastamento {
+        String dtIniAfast;
+        String codMotAfast;
+        String infoMesmoMtv;
+        String tpAcidTransito;
+        String observacao;
+        PerAquis perAquis;
+    }
+
+    class PerAquis {
+        String dtInicio;
+        String dtFim;
+    }
+}
