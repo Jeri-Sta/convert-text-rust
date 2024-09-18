@@ -7,6 +7,7 @@ pub(crate) fn format_to_java() {
 
     let mut output = input.replace("\\n", "\r\n");
     output = output.replace("\\t", "\t");
+    output = output.replace("\\\"", "\"");
 
     write_file("output.txt", &output);
 }
@@ -18,6 +19,7 @@ pub(crate) fn format_to_json() {
 
     let mut output = input.replace("\r\n", "\\n");
     output = output.replace("\t", "\\t");
+    output = output.replace("\"", "\\\"");
 
     write_file("output.txt", &output);
 }
