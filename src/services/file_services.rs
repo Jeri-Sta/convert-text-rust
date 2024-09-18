@@ -47,6 +47,6 @@ pub(crate) fn write_file(file_name: &str, content: &str) {
 
     match file.write_all(content.as_bytes()) {
         Err(why) => panic!("Não foi possível escrever no arquivo {}: {}", display, why),
-        Ok(_) => println!("Arquivo {} escrito com sucesso!", display),
+        Ok(_) => println!("Arquivo {} escrito com sucesso!\n", display),
     }
 }

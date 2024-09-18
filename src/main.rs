@@ -8,10 +8,10 @@ use crate::services::format_service::{format_to_json, format_to_java};
 
 fn main() {
     create_files();
+    println!("Olá!");
 
     loop {
-        println!("Olá! \n\
-        Qual opção de formatação você deseja realizar? \n\
+        println!("Qual opção de formatação você deseja realizar? \n\
         1 - Formatar para JSON \n\
         2 - Formatar para código Java \n\
         0 - Fechar programa");
