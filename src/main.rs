@@ -18,12 +18,13 @@ fn main() {
 
         let mut input = String::new();
 
-        match io::stdout().flush() {
-            Ok(_) => {},
-            Err(_) => println!("Falha ao limpar o buffer de saída")
-        };
+        if let Err(_) = io::stdout().flush() {
+            println!("Falha ao limpar o buffer de saída")
+        }
 
-        io::stdin().read_line(&mut input).expect("Falha ao ler a entrada");
+        if let Err(_) = io::stdin().read_line(&mut input) {
+            println!("Falha ao ler a entrada")
+        }
 
         let input = input.trim();
 
